@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>task_1</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <header></header>
+  <main>
+
+    <div class="tables-wrapper">
+      <div>
+        <table class="notes-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Created</th>
+              <th>Category</th>
+              <th>Content</th>
+              <th>Dates</th>
+              <th>
+                <i class="fa-sharp fa-solid fa-download"></i>
+                <i class="fa-sharp fa-solid fa-trash"></i>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="notes-table__list">
+          </tbody>
+          </tbody>
+        </table>
+        <button class="create-node">create note</button>
+      </div>
+      <table class="notes-archive-table">
+        <thead>
+          <tr>
+            <th>Note Category</th>
+            <th>Active</th>
+            <th>Atchived</th>
+          </tr>
+        </thead>
+        <tbody class="notes-archive-table__list">
+        </tbody>
+      </table>
+    </div>
+    <!-- modal -->
+    <div class="modal">
+      <div class="modal__content">
+        <!-- form -->
+        <form id="form">
+          <div class=" form__item">
+            <label for="form__name">Name:</label><br />
+            <input type="text" id="form__name" value="..." name="name">
+          </div>
+          <div class="form__item">
+            <label for="form__category">Category:</label><br />
+            <select id="form__category" name="category">
+              <option value="task">Task</option>
+              <option value="random_thought">Random Thought</option>
+              <option value="idea">Idea</option>
+            </select>
+          </div>
+          <div class="form__item">
+            <label for="form__content">Content:</label><br />
+            <textarea name="content" rows="10" cols="30">content</textarea>
+          </div>
+          <div>
+            <button type="submit">Submit</button>
+          </div>
+      </div>
+      </form>
+      <!-- form -->
+    </div>
+    </div>
+    <!-- modal -->
+  </main>
+  <footer></footer>
+  <script type="module" src="js/sctipt.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+table {
+  width: 100%;
+  color: #fff;
+  border-collapse: collapse;
+}
+
+table thead {
+  background-color: gray;
+}
+
+table thead tr th {
+  padding: 10px;
+}
+
+table thead tr th:not(:first-child) {
+  text-align: left;
+}
+
+.notes-table thead tr th:last-child,
+.notes-table tbody tr td:last-child {
+  text-align: end;
+}
+
+tbody tr td {
+  border-top: 5px solid #fff;
+  background-color: lightgray;
+  padding: 10px 10px 5px 10px;
+}
+
+.tables-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+/* *modal* */
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+}
+
+.modal.active {
+  transform: scale(1);
+}
+
+.modal__content {
+  padding: 20px;
+  border-radius: 12px;
+  background-color: white;
+}
+
+/* *form* */
+.form__item {
+  margin-top: 10px;
+}
+
+/* button */
+.btn {
+  position: relative;
+  z-index: 1;
+
+  padding: 0 2px;
+
+  background: transparent;
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.btn .fa-sharp {
+  position: relative;
+  z-index: -1;
+  color: gray;
+}
+/* 
+.notes-table__list tr td:first-child {
+  display: flex;
+  text-align: center;
+} */
+
+.first-col div {
+  display: inline;
+  background-color: gray;
+  border-radius: 50%;
+  padding: 5px;
+}
