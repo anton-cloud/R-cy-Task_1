@@ -4,7 +4,7 @@ import { notesArchive as initialNotesArchive } from "../data/notesArchive.js";
 const notes = [...initialNotes]
 const notesArchive = [...initialNotesArchive]
 const icons = { task: "fa-list-check", idea: "fa-lightbulb", random_thought: "fa-star" }
-let isActiveNotes = false;
+let isActiveNotes = true;
 
 function updateArchiveData() {
 
@@ -155,6 +155,7 @@ function deleteNote(e) {
     e.target.parentElement.parentElement.remove(); // removing from DOM
     console.log(notes);
     renderNotesTable(isActiveNotes)
+    updateArchiveData()
     renderArchiveTable()
   }
 }
@@ -198,14 +199,15 @@ function handleSubmit(e) {
     return;
   }
 
-  console.log(category.value);
+
+
   const newNote = {
     id: changeNodeId ? changeNodeId : Date.now(),
     name: name.value,
-    created: Date.now(),
+    created: getCurrentDate(new Date()),
     category: category.value,
     content: content.value,
-    dates: null,
+    dates: getDates(content.value),
     active: true,
     icon: icons[category.value],
   }
@@ -228,3 +230,38 @@ function handleSubmit(e) {
   form.reset();
   console.log(notes);
 }
+
+//current Date
+
+function getCurrentDate(currentDate) {
+  let monthsList = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let date = currentDate.getDate();
+  let month = monthsList[currentDate.getMonth()];
+  let year = currentDate.getFullYear();
+  return `${month} ${date}, ${year}`
+}
+
+//get dates from string
+
+function getDates(str) {
+  let result = ''
+
+  const datesArr = str.match(/\d{2}([\/..])\d{2}\1\d{4}/g);
+
+  switch (datesArr?.length) {
+    case 1:
+      result = `${datesArr[0]}`;
+      break;
+
+    case 2:
+      result = `${datesArr[0]}, ${datesArr[1]}`
+      break;
+
+    default:
+      result;
+  }
+
+  return result;
+
+}
+
