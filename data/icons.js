@@ -1,0 +1,1 @@
+export const icons = { task: "fa-list-check", idea: "fa-lightbulb", random_thought: "fa-star" }
