@@ -23,15 +23,23 @@ table thead tr th:not(:first-child) {
   text-align: left;
 }
 
-.notes-table thead tr th:last-child,
-.notes-table tbody tr td:last-child {
+.notes-table thead tr th:first-child {
+  min-width: 15git0px;
+}
+
+.notes-table thead tr th:last-child {
   text-align: end;
+  min-width: 60px;
 }
 
 tbody tr td {
   border-top: 5px solid #fff;
   background-color: lightgray;
   padding: 10px 10px 5px 10px;
+}
+
+tbody tr td:last-child {
+  text-align: end;
 }
 
 /* *modal* */
