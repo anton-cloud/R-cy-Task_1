@@ -4,7 +4,7 @@ import { notesArchive as initialNotesArchive } from "../data/notesArchive.js";
 const notes = [...initialNotes]
 const notesArchive = [...initialNotesArchive]
 const icons = { task: "fa-list-check", idea: "fa-lightbulb", random_thought: "fa-star" }
-
+let isActiveNotes = false;
 
 function updateArchiveData() {
 
@@ -28,6 +28,8 @@ const createNoteBtn = document.querySelector(".create-node")
 const modal = document.querySelector(".modal")
 const modalContent = document.querySelector('.modal__content')
 const form = document.getElementById("form");
+const active = document.querySelector("#active");
+const archived = document.querySelector("#atchived")
 
 notesList.addEventListener('click', deleteNote);
 notesList.addEventListener('click', editNote);
@@ -37,6 +39,20 @@ createNoteBtn.addEventListener('click', () => { modal.classList.add("active") })
 modal.addEventListener("click", () => { modal.classList.remove("active"), changeNodeId = null, form.reset() })
 modalContent.addEventListener('click', (e) => { e.stopPropagation() })
 form.addEventListener('submit', handleSubmit)
+active.addEventListener('click', () => {
+  isActiveNotes = true;
+  renderNotesTable(isActiveNotes),
+    active.classList.add("notes-archive-table__item_chacked"),
+    archived.classList.remove("notes-archive-table__item_chacked")
+})
+archived.addEventListener('click', () => {
+  isActiveNotes = false;
+  renderNotesTable(isActiveNotes),
+    active.classList.remove("notes-archive-table__item_chacked"),
+    archived.classList.add("notes-archive-table__item_chacked")
+
+})
+
 
 function getActiveCountTask(notes) {
   const activeTaskArr = notes.filter((note) => note.category === "task" && note.active)
@@ -68,10 +84,12 @@ function getArchivedCountIdea(notes) {
   return archivedIdeaArr.length;
 }
 
-function renderNotesTable() {
+// const notesTableMarkup
+
+function renderNotesTable(isActiveNotes) {
   console.log("render renderNotesTable");
   notesList.innerHTML = notes.map((note) => {
-    if (note.active) {
+    if (isActiveNotes ? note.active : !note.active) {
       return ` <tr data-id=${note.id}>
     <td class="first-col">
     <div><i class="fa-sharp fa-solid ${note.icon}"></i></div>
@@ -110,7 +128,7 @@ function renderArchiveTable() {
   }).join("")
 }
 
-renderNotesTable()
+renderNotesTable(isActiveNotes)
 updateArchiveData()
 renderArchiveTable()
 
@@ -123,7 +141,7 @@ function archiveNote(e) {
     console.log(index);
     notes[index].active = !notes[index].active
 
-    renderNotesTable()
+    renderNotesTable(isActiveNotes)
     updateArchiveData()
     renderArchiveTable()
   }
@@ -136,7 +154,7 @@ function deleteNote(e) {
     notes.splice(index, 1);
     e.target.parentElement.parentElement.remove(); // removing from DOM
     console.log(notes);
-    renderNotesTable()
+    renderNotesTable(isActiveNotes)
     renderArchiveTable()
   }
 }
@@ -162,7 +180,7 @@ function editNote(e) {
     formContent.value = currentNote?.content;
     // formButton.textContent = "change";
     console.log(notes);
-    renderNotesTable()
+    renderNotesTable(isActiveNotes)
     updateArchiveData()
     renderArchiveTable()
   }
@@ -202,7 +220,7 @@ function handleSubmit(e) {
   }
 
 
-  renderNotesTable()
+  renderNotesTable(isActiveNotes)
   updateArchiveData()
   renderArchiveTable()
 

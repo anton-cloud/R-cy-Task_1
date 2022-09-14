@@ -95,3 +95,12 @@ tbody tr td {
   border-radius: 50%;
   padding: 5px;
 }
+
+.notes-archive-table__item {
+  cursor: pointer;
+}
+
+.notes-archive-table__item_chacked,
+.notes-archive-table__item:hover {
+  color: lightskyblue;
+}

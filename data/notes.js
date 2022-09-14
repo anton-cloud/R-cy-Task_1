@@ -1,6 +1,6 @@
 export const notes = [{
     id: 1,
-    name: "Shopping list",
+    name: "Shopping list1",
     created: "Apil 20, 2020",
     category: 'task',
     content: 'Lorem, ipsum.',
@@ -10,7 +10,7 @@ export const notes = [{
 },
 {
     id: 2,
-    name: "Shopping list",
+    name: "Shopping list2",
     created: "Apil 20, 2020",
     category: 'task',
     content: 'Lorem, ipsum.',
