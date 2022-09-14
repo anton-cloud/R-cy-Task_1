@@ -34,7 +34,9 @@
           </tbody>
           </tbody>
         </table>
-        <button class="create-node">create note</button>
+        <div class="create-node-btn-wrapper">
+          <button class="create-node">Create Note</button>
+        </div>
       </div>
       <table class="notes-archive-table">
         <thead>
@@ -55,7 +57,7 @@
         <form id="form">
           <div class=" form__item">
             <label for="form__name">Name:</label><br />
-            <input type="text" id="form__name" value="..." name="name">
+            <input type="text" id="form__name" value="" name="name">
           </div>
           <div class="form__item">
             <label for="form__category">Category:</label><br />
@@ -67,7 +69,7 @@
           </div>
           <div class="form__item">
             <label for="form__content">Content:</label><br />
-            <textarea name="content" rows="10" cols="30">content</textarea>
+            <textarea name="content" rows="10" cols="30"></textarea>
           </div>
           <div>
             <button type="submit">Submit</button>

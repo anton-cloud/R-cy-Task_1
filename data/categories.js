@@ -1,0 +1,1 @@
+export const categories = { task: "Task", random_thought: "Random Thought", idea: "Idea" }
