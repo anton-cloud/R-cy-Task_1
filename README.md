@@ -6,3 +6,5 @@
 4.	Users can archive notes. Archived notes are not shown in the notes list. Users can view archived notes and unarchive them.
 5.	There should also be a summary table which counts notes by categories: separately for active and archived. The table is updated whenever users perform some action on notes. The summary table is shown on the same page as the notes table.
 6.	There is no need to implement data storage. Simply create a JS variable which stores the data and prepopulate it with 7 notes so that they are shown when the page is reloaded.
+
+![Безымянный](https://user-images.githubusercontent.com/59195956/190323385-c8246a45-fc24-4b9e-81ab-986305b33651.png)
