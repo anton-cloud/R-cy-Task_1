@@ -1,4 +1,4 @@
-##  #1 | JavaScript
+## | JavaScript
 
 1.	Your task is to create a notes app in JS as a web app. Users can add, edit and remove notes. 
 2.	List of notes is displayed in a form of table (HTML representation may vary: table, divs etc). The columns are time of creation, note content, note category. Categories are predefined: “Task”, “Random Thought”, “Idea”.
